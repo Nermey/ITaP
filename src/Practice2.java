@@ -23,13 +23,9 @@ public class Practice2 {
         System.out.println(equalToAvg(new float[] {1, 2, 3, 4, 5, 6}));
 
         System.out.println("task5");
-        for (int i: indexMult(new int[]{1, 2, 3})) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-        for (int i: indexMult(new int[]{3, 3, -2, 408, 3, 31})) { // ошибка в ответах задания!
-            System.out.print(i + " ");
-        }
+
+        System.out.println(Arrays.toString(indexMult(new int[]{1, 2, 3})));
+        System.out.println(Arrays.toString(indexMult(new int[]{3, 3, -2, 408, 3, 31})));
 
         System.out.println(" ");
         System.out.println("task6");
@@ -151,7 +147,7 @@ public class Practice2 {
     public static String botHelper(String str) {
         String[] words = str.split(" ");
         for (String word: words) {
-            if (word.startsWith("help")) {
+            if (word.equals("help")) {
                 return "Calling for a staff member";
             }
         }
