@@ -19,6 +19,7 @@ public class Pracrice4 {
         System.out.println("task 4");
         System.out.println(alphabeticRow("abcdjuwx"));
         System.out.println(alphabeticRow("klmabzyxw"));
+        System.out.println(alphabeticRow("ababc"));
 
         System.out.println("task 5");
         System.out.println(letterCounter("aaabbcdd"));
@@ -28,6 +29,8 @@ public class Pracrice4 {
         System.out.println(convertToNum("eight"));
         System.out.println(convertToNum("five hundred sixty seven"));
         System.out.println(convertToNum("thirty one"));
+        System.out.println(convertToNum("zero"));
+
 
         System.out.println("task 7");
         System.out.println(uniqueSubstring("123412324"));
@@ -130,7 +133,7 @@ public class Pracrice4 {
     public static StringBuilder letterCounter(String str) { // task 5
         StringBuilder res = new StringBuilder();
         ArrayList<String> letters = new ArrayList<>();
-        for (int i = 0; i < str.length() - 1; i++) {
+        for (int i = 0; i < str.length() - 1; i++) { // добавление символа с его количетсвом
             int maxLength = 1;
             int currentLength = 1;
             for (int j = i + 1; j < str.length(); j++) {
@@ -140,12 +143,12 @@ public class Pracrice4 {
                 currentLength++;
                 maxLength = Math.max(maxLength, currentLength);
             }
-            if (letters.size() >= 1 && letters.get(letters.size() - 1).charAt(0) == str.charAt(i)) {
+            if (letters.size() >= 1 && letters.get(letters.size() - 1).charAt(0) == str.charAt(i)) { // чтобы не записывать предыдущие результаты
                 continue;
             }
             letters.add(String.valueOf(str.charAt(i)) + String.valueOf(maxLength));
         }
-        for (int i = 0; i < letters.size(); i++) {
+        for (int i = 0; i < letters.size(); i++) { // сортировка выбором
             String min = letters.get(i);
             int minId = i;
             for (int j = i + 1; j < letters.size(); j++) {
@@ -166,6 +169,7 @@ public class Pracrice4 {
 
     public static int convertToNum(String numExpression) { // task 6
         Map<String, Integer> wordsToNumbers = new HashMap<>();
+        wordsToNumbers.put("zero", 0);
         wordsToNumbers.put("one", 1);
         wordsToNumbers.put("two", 2);
         wordsToNumbers.put("three", 3);
@@ -212,7 +216,7 @@ public class Pracrice4 {
     public static StringBuilder uniqueSubstring(String str) { // task 7
         StringBuilder maxLenSubstring = new StringBuilder("");
         for (int i = 0; i < str.length() - 1; i++) {
-            StringBuilder currentLength = new StringBuilder(String.valueOf(str.charAt(i)));
+            StringBuilder currentLength = new StringBuilder(String.valueOf(str.charAt(i))); // добавление 1 символа
             ArrayList<Character> symbolsInSubstring = new ArrayList<>();
             symbolsInSubstring.add(str.charAt(i));
             for (int j = i + 1; j < str.length(); j++) {
@@ -221,10 +225,10 @@ public class Pracrice4 {
                         maxLenSubstring = currentLength;
                     }
                     break;
-            }
-                currentLength.append(str.charAt(j));
+                }
+                currentLength.append(str.charAt(j)); // добавление если символ прошел проверку
                 symbolsInSubstring.add(str.charAt(j));
-        }
+            }
 
         }
         return  maxLenSubstring;
