@@ -1,0 +1,12 @@
+переворот слова
+[ipihcipihc, apahcapahc, iburibur, abadabad]
+
+сортировка
+[chapachapa, chipichipi, dabadaba, rubirubi]
+
+перевод к заглавным буквам
+[CHIPICHIPI, CHAPACHAPA, RUBIRUBI, DABADABA]
+
+заполнение массива
+[chipichipi, chapachapa, rubirubi, dabadaba]
+
